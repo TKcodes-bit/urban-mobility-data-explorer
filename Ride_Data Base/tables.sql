@@ -1,3 +1,5 @@
+USE `urban_transport`;
+
 CREATE TABLE IF NOT EXISTS operators (
   operator_id VARCHAR(8) PRIMARY KEY,
   company_name VARCHAR(64)
@@ -38,10 +40,7 @@ CREATE TABLE IF NOT EXISTS journeys (
   ) STORED,
   weekend_flag TINYINT GENERATED ALWAYS AS (
     CASE WHEN DAYOFWEEK(start_time) IN (1,7) THEN 1 ELSE 0 END
-  ) STORED,
-
-  CONSTRAINT fk_journey_operator FOREIGN KEY (operator_id) REFERENCES operators(operator_id),
-  CONSTRAINT fk_journey_payment FOREIGN KEY (payment_mode) REFERENCES payment_modes(mode_code)
+  ) STORED
 );
 CREATE TABLE IF NOT EXISTS stations (
   station_id VARCHAR(16) PRIMARY KEY,
