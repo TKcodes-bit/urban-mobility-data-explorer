@@ -1,61 +1,76 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9fafb;
-  color: #333;
   margin: 0;
   padding: 0;
+  background: #f5f5f5;
 }
 
 header {
-  background-color: #0074d9;
+  background: #2c3e50;
   color: white;
-  padding: 15px 0;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls button, .controls select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+#summary {
+  padding: 1rem;
   text-align: center;
 }
 
-.filters {
+.summary-cards {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 20px;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.filters input, .filters button {
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.filters button {
-  background-color: #0074d9;
-  color: white;
-  cursor: pointer;
-}
-
-.filters button:hover {
-  background-color: #005fa3;
-}
-
-.summary, .table-container {
-  margin: 20px auto;
-  width: 90%;
+.card {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  min-width: 150px;
 }
 
-table {
+#visuals {
+  padding: 1rem;
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.charts canvas {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  max-width: 600px;
   width: 100%;
-  border-collapse: collapse;
-  text-align: left;
 }
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f1f1f1;
+#map {
+  height: 500px;
+  margin: 0 auto 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  max-width: 90%;
 }

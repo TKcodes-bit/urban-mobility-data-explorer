@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NYC Taxi Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Mobility Dashboard</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Leaflet.js -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  
 </head>
 <body>
   <header>
-    <h1>🚕 NYC Taxi Trip Dashboard</h1>
+    <h1>Urban Mobility Data Explorer</h1>
   </header>
 
-  <section class="filters">
-    <label for="timeFilter">Filter by Time:</label>
-    <input type="datetime-local" id="timeFilter" />
+  <main>
+    <div class="controls">
+      <button id="processBtn">Process & Load Data</button>
+      <label for="vendorFilter">Vendor:</label>
+      <select id="vendorFilter">
+        <option value="all">All</option>
+      </select>
+    </div>
 
-    <label for="distanceFilter">Min Distance (km):</label>
-    <input type="number" id="distanceFilter" placeholder="0" />
+    <section id="summary">
+      <h2>Data Summary</h2>
+      <div class="summary-cards">
+        <div class="card">Total Trips: <span id="totalTrips">0</span></div>
+        <div class="card">Avg Distance (km): <span id="avgDistance">0</span></div>
+        <div class="card">Avg Speed (km/h): <span id="avgSpeed">0</span></div>
+        <div class="card">Avg Fare ($): <span id="avgFare">0</span></div>
+      </div>
+    </section>
 
-    <button id="filterBtn">Apply Filter</button>
-  </section>
-
-  <section class="summary">
-    <h2>Summary</h2>
-    <div id="summaryContainer">Loading data...</div>
-  </section>
-
-  <section class="table-container">
-    <h2>Trip Records</h2>
-    <table id="tripTable">
-      <thead>
-        <tr>
-          <th>Pickup Time</th>
-          <th>Dropoff Time</th>
-          <th>Distance (km)</th>
-          <th>Fare ($)</th>
-          <th>Speed (km/h)</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </section>
+    <section id="visuals">
+      <h2>Visualizations</h2>
+      <div class="charts">
+        <canvas id="tripsChart"></canvas>
+        <canvas id="fareChart"></canvas>
+      </div>
+      <div id="map"></div>
+    </section>
+  </main>
 
   <script src="main.js"></script>
 </body>
