@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #0074d9;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.filters input, .filters button {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filters button {
+  background-color: #0074d9;
+  color: white;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #005fa3;
+}
+
+.summary, .table-container {
+  margin: 20px auto;
+  width: 90%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f1f1f1;
+}

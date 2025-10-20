@@ -3,12 +3,11 @@
 -- Enable foreign key constraints
 PRAGMA foreign_keys = ON;
 
--- Create vendor table 
+CREATE TABLE IF NOT EXISTS vendor (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL
 );
 
--- Create location table 
 CREATE TABLE IF NOT EXISTS location(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     pickup_longitude REAL NOT NULL,
@@ -17,7 +16,6 @@ CREATE TABLE IF NOT EXISTS location(
     dropoff_latitude REAL NOT NULL
 );
 
--- Create trip table 
 CREATE TABLE IF NOT EXISTS trip(
     id TEXT PRIMARY KEY,
     vendor_id INTEGER,
@@ -27,7 +25,6 @@ CREATE TABLE IF NOT EXISTS trip(
     location_id INTEGER NOT NULL,
     store_and_fwd_flag TEXT NOT NULL CHECK (store_and_fwd_flag IN ('Y','N')),
     trip_duration INTEGER NOT NULL,
-    -- Extra columns based on MySQL schema
     distance_km REAL,
     fare_amount REAL,
     tip_amount REAL,
@@ -36,19 +33,16 @@ CREATE TABLE IF NOT EXISTS trip(
     FOREIGN KEY (location_id) REFERENCES location(id)
 );
 
--- Create indexes for better query performance
 CREATE INDEX IF NOT EXISTS idx_pickup_date ON trip(pickup_date);
 CREATE INDEX IF NOT EXISTS idx_dropoff_date ON trip(dropoff_date);
 CREATE INDEX IF NOT EXISTS idx_vendor_id ON trip(vendor_id);
 CREATE INDEX IF NOT EXISTS idx_location_id ON trip(location_id);
 CREATE INDEX IF NOT EXISTS idx_trip_duration ON trip(trip_duration);
 
--- Insert initial vendor data 
 INSERT OR IGNORE INTO vendor (id, name) VALUES
 (1, 'GoTaxi'),
 (2, 'Move');
 
--- View for trip summary with vendor and location details
 CREATE VIEW IF NOT EXISTS trip_summary AS
 SELECT 
     t.id,
@@ -66,7 +60,6 @@ FROM trip t
 LEFT JOIN vendor v ON t.vendor_id = v.id
 LEFT JOIN location l ON t.location_id = l.id;
 
--- View for daily trip statistics
 CREATE VIEW IF NOT EXISTS daily_stats AS
 SELECT 
     DATE(pickup_date) as trip_date,
@@ -78,7 +71,6 @@ FROM trip
 GROUP BY DATE(pickup_date)
 ORDER BY trip_date;
 
--- View for vendor performance
 CREATE VIEW IF NOT EXISTS vendor_stats AS
 SELECT 
     v.name as vendor_name,

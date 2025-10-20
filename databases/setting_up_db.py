@@ -4,7 +4,7 @@ import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 db_file = os.path.join(current_dir, 'urban_db.db')
-train_csv_path = os.path.join(current_dir, 'train.csv')
+train_csv_path = os.path.join(current_dir, '../Backend/Data/cleaned_train.csv')
 
 conn = sqlite3.connect(db_file)
 cursor = conn.cursor()
