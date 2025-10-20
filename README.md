@@ -3,6 +3,8 @@
 
 # Urban Mobility Data Explorer
 Documentation: https://docs.google.com/document/d/17aqYhA6zAZCoZdjYkKeG31aFTatz3k6lhL1fzz6VA2A/edit?tab=t.0#heading=h.xcc4p8qxoyxa
+Video Overview:
+https://www.loom.com/share/f27505b831e241f8984cf328118893b2
 
 **Project Overview**
 The Urban Mobility Data Explorer is a full-stack application designed to analyze, clean, and visualize urban mobility datasets. It helps users explore taxi/trip data, detect anomalies, and gain insights into travel patterns, distances, speeds, and fares. The system includes a Python backend, SQLite database, and an interactive frontend dashboard with charts and a heatmap.
