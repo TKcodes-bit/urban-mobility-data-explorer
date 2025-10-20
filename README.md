@@ -192,17 +192,11 @@ cd Frontend
 
 ---
 
-## License
 
-This project is licensed under the MIT License.
+## Collaborators
 
----
-
-## Contact
-
-* **Author**: Thomas Odongo
-* **Email**: [Your Email]
-* **GitHub**: [https://github.com/TKcodes-bit/urban-mobility-data-explorer](https://github.com/TKcodes-bit/urban-mobility-data-explorer)
-
+* **Contibutor **: Thomas Odongo
+* **Colaborator**: Kevin Nyawakira
+* **Colaborator**: Cynthia Keza
 ---
 
